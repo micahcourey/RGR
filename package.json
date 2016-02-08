@@ -1,0 +1,19 @@
+{
+  "name": "rgr",
+  "version": "1.0.0",
+  "description": "A collection of educational resources",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.4.5"
+  }
+}
