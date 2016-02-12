@@ -19686,9 +19686,9 @@
 	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "h3",
+	        "h1",
 	        null,
-	        "Hello React with ES6"
+	        "Hi React with ES6"
 	      );
 	    }
 	  }]);
