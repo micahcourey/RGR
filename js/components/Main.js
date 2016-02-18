@@ -32,7 +32,7 @@ export default class Main extends React.Component {
     });
     return (
       <div>
-        <h3>Links</h3>
+        <h3>Portland JavaScript Meetups</h3>
         <ul>
           {content}
         </ul>
