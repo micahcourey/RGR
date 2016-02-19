@@ -25,7 +25,7 @@ export default class Main extends React.Component {
     this.setState(_getAppState());
   }
   render() {
-    let content = this.state.links.map(link => {
+    let content = this.state.links.slice(0, 3).map(link => {
       return <li key={link._id}>
                <a href={link.url}>{link.title}</a>
              </li>;
