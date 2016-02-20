@@ -6,13 +6,18 @@ let _getAppState = () => {
   return { links: LinkStore.getAll() };
 }
 
-export default class Main extends React.Component {
-  constructor(props) {
-    super(props);
+class Main extends React.Component {
+  // static propTypes = {
+  //   limit: React.propTypes.number
+  // }
+  //
+  // static defaultProps = {
+  //   limit: 3
+  // }
 
-    this.state = _getAppState();
-    this.onChange = this.onChange.bind(this);
-  }
+  state = _getAppState();
+
+
   componentDidMount() {
     API.fetchLinks();
     LinkStore.on("change", this.onChange)
@@ -20,12 +25,11 @@ export default class Main extends React.Component {
   componentWillUnmount() {
     LinkStore.on("change", this.onChange);
   }
-  onChange() {
-    console.log("4. In the view");
+  onChange = () => {
     this.setState(_getAppState());
   }
   render() {
-    let content = this.state.links.slice(0, 3).map(link => {
+    let content = this.state.links.map(link => {
       return <li key={link._id}>
                <a href={link.url}>{link.title}</a>
              </li>;
@@ -40,3 +44,5 @@ export default class Main extends React.Component {
     );
   }
 }
+
+export default Main;

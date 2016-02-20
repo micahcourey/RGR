@@ -19688,15 +19688,28 @@
 	var Main = function (_React$Component) {
 	  _inherits(Main, _React$Component);
 
-	  function Main(props) {
+	  function Main() {
+	    var _Object$getPrototypeO;
+
+	    var _temp, _this, _ret;
+
 	    _classCallCheck(this, Main);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Main).call(this, props));
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
 
-	    _this.state = _getAppState();
-	    _this.onChange = _this.onChange.bind(_this);
-	    return _this;
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Main)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = _getAppState(), _this.onChange = function () {
+	      _this.setState(_getAppState());
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
+	  // static propTypes = {
+	  //   limit: React.propTypes.number
+	  // }
+	  //
+	  // static defaultProps = {
+	  //   limit: 3
+	  // }
 
 	  _createClass(Main, [{
 	    key: "componentDidMount",
@@ -19708,12 +19721,6 @@
 	    key: "componentWillUnmount",
 	    value: function componentWillUnmount() {
 	      _LinkStore2.default.on("change", this.onChange);
-	    }
-	  }, {
-	    key: "onChange",
-	    value: function onChange() {
-	      console.log("4. In the view");
-	      this.setState(_getAppState());
 	    }
 	  }, {
 	    key: "render",
@@ -19735,7 +19742,7 @@
 	        _react2.default.createElement(
 	          "h3",
 	          null,
-	          "Links"
+	          "Portland JavaScript Meetups"
 	        ),
 	        _react2.default.createElement(
 	          "ul",
