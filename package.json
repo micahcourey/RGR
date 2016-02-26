@@ -29,6 +29,6 @@
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-relay": "^0.7.1",
-    "webpack": "^1.12.13"
+    "webpack": "^1.12.14"
   }
 }
