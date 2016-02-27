@@ -12,6 +12,7 @@ import {
   connectionDefinitions,
   connectionArgs,
   connectionFromPromisedArray,
+  globalIdField,
   mutationWithClientMutationID
 } from "graphql-relay"
 
@@ -21,7 +22,8 @@ let Schema = (db) => {
   let storeType = new GraphQLObjectType({
     name: 'Store',
     fields: () => ({
-      links: {
+      id: globalIdField("Store"),
+      linkConnection: {
         type: linkConnection.connectionType,
         args: connectionArgs,
         resolve: (_, args) => connectionFromPromisedArray(
@@ -59,9 +61,13 @@ let Schema = (db) => {
     },
 
     outputFields: {
-      link: {
-        type: linkType,
-        resolve: (obj) => obj.ops[0]
+      linkEdge: {
+        type: linkConnection.edgeType,
+        resolve: (obj) => ({ node: obj.ops[0], curser: obj.insertedId })
+      },
+      store: {
+        type: storeType,
+        resolve: () => store
       }
     },
 
