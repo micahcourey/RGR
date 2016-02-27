@@ -11,7 +11,8 @@ import {
 import {
   connectionDefinitions,
   connectionArgs,
-  connectionFromPromisedArray
+  connectionFromPromisedArray,
+  mutationWithClientMutationID
 } from "graphql-relay"
 
 let Schema = (db) => {
@@ -49,6 +50,26 @@ let Schema = (db) => {
     nodeType: linkType
   });
 
+  let createLinkMutation = mutationWithClientMutationID({
+    name: 'CreateLink',
+
+    inputFields: {
+      title: { type: new GraphQLNonNull(GraphQLString)},
+      url: { type: new GraphQLNonNull(GraphQLString)}
+    },
+
+    outputFields: {
+      link: {
+        type: linkType,
+        resolve: (obj) => obj.ops[0]
+      }
+    },
+
+    mutateAndGetPayload: () => {
+      return db.collection("links").insertOne({title, url});
+    }
+  });
+
   let schema = new GraphQLSchema({
     query: new GraphQLObjectType({
       name: 'Query',
@@ -57,6 +78,13 @@ let Schema = (db) => {
           type: storeType,
           resolve: () => store
         }
+      })
+    }),
+
+    mutation: new GraphQLObjectType({
+      name: 'Mutation',
+      fields: () => ({
+        createLink: createLinkMutation
       })
     })
   });
