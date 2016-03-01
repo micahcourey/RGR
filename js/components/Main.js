@@ -27,11 +27,11 @@ class Main extends React.Component {
     });
     return (
       <div>
-        <h3>Portland JavaScript Meetups</h3>
+        <h3>Portland JavaScript Meetups!</h3>
         <form onSubmit={this.handleSubmit}>
           <input type="text" placeholder="Title" ref="newTitle" />
           <input type="test" placeholder="Url" ref="newUrl" />
-          <button type="submit">Add Meetup</button>
+          <button type="submit">Add</button>
         </form>
         <select onChange={this.setLimit} defaultValue={this.props.relay.variables.limit}>
           <option value="5">5</option>
