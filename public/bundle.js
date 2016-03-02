@@ -43175,7 +43175,7 @@
 	        _react2.default.createElement(
 	          "h3",
 	          null,
-	          "Portland JavaScript Meetups"
+	          "Portland JavaScript Meetups!"
 	        ),
 	        _react2.default.createElement(
 	          "form",
@@ -43185,7 +43185,7 @@
 	          _react2.default.createElement(
 	            "button",
 	            { type: "submit" },
-	            "Add Meetup"
+	            "Add"
 	          )
 	        ),
 	        _react2.default.createElement(
@@ -43281,6 +43281,11 @@
 	        "li",
 	        null,
 	        _react2.default.createElement(
+	          "span",
+	          null,
+	          link.createdAt
+	        ),
+	        _react2.default.createElement(
 	          "a",
 	          { href: link.url },
 	          link.title
@@ -43296,24 +43301,7 @@
 	  fragments: {
 	    link: function link() {
 	      return function () {
-	        return {
-	          children: [{
-	            fieldName: "url",
-	            kind: "Field",
-	            metadata: {},
-	            type: "String"
-	          }, {
-	            fieldName: "title",
-	            kind: "Field",
-	            metadata: {},
-	            type: "String"
-	          }],
-	          id: "3mrFT2T9hge0:0",
-	          kind: "Fragment",
-	          metadata: {},
-	          name: "S",
-	          type: "Link"
-	        };
+	        throw new Error("GraphQL validation/transform error ``Cannot query field \"createdAt\" on type \"Link\".`` in file `/home/micah/Projects/RGR/js/components/Link.js`.");
 	      }();
 	    }
 	  }
@@ -43387,7 +43375,7 @@
 	        rangeBehaviors: {
 	          // When the ships connection is not under the influence
 	          // of any call, append the ship to the end of the connection
-	          '': 'append'
+	          '': 'prepend'
 	        }
 	      }];
 	    }
